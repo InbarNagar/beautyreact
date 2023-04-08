@@ -84,6 +84,3 @@ const TreatmentForm = () => {
     }
       
 
-          /* <View style={styles.field}>
-            <Text style={styles.fieldLabel}>Price:</Text>
-            <TextInput */

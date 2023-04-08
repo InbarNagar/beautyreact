@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import {StyleSheet, View, TextInput, Button,Text,marginRight } from 'react-native';
 
 const Professional_registration = () => {
   const [firstName, setFirstName] = useState('');
@@ -36,62 +36,130 @@ const Professional_registration = () => {
   };
 
   return (
-    <View>
-      <TextInput
+    <View style={{padding:50, backgroundColor:`#ffefd5`}}>
+      <Text  style={styles.title}>איזה כיף שהחלטת להצטרף לקהילת בעלי העסקים שלנו!</Text>
+      <Text style={styles.titp}> אנא מלא/י את הפרטים הבאים:</Text>
+        <View style={styles.inp}>
+         
+   
+       <TextInput style={styles.textInputS}
         placeholder="שם פרטי"
         value={firstName}
         onChangeText={(text) => setFirstName(text)}
       />
-      <TextInput
+   <Text>שם פרטי</Text> 
+      </View>
+
+      <View style={styles.inp}>
+      <TextInput style={styles.textInputS}
         placeholder="שם משפחה"
         value={lastName}
         onChangeText={(text) => setLastName(text)}
       />
-      <TextInput
+         <Text>שם משפחה</Text> 
+      </View>
+
+      <View style={styles.inp}>
+      <TextInput style={styles.textInputS}
         placeholder="מין"
         value={gender}
         onChangeText={(text) => setGender(text)}
       />
-      <TextInput
+      <Text>מין</Text>
+</View>
+
+<View style={styles.inp}>
+      <TextInput style={styles.textInputS}
         placeholder="תאריך לידה"
         value={dateOfBirth}
         onChangeText={(text) => setDateOfBirth(text)}
       />
-      <TextInput
+      <Text>שם משפחה</Text>
+      </View>
+
+      <View style={styles.inp}>
+      <TextInput style={styles.textInputS}
         placeholder="פלאפון"
         value={phone}
         onChangeText={(text) => setPhone(text)}
       />
-      <TextInput
+      <Text>פלאפון</Text>
+</View>
+      <View style={styles.inp}>
+      <TextInput style={styles.textInputS}
         placeholder="אימייל"
         value={email}
         onChangeText={(text) => setEmail(text)}
       />
-      <TextInput
+      <Text>איימיל</Text>
+</View>
+
+
+<View style={styles.inp}>
+      <TextInput style={styles.textInputS}
         placeholder="רחוב"
         value={street}
         onChangeText={(text) => setStreet(text)}
       />
-      <TextInput
+      <Text>רחוב</Text>
+</View>
+
+
+<View style={styles.inp}>
+      <TextInput style={styles.textInputS}
         placeholder="מספר בית"
         value={houseNumber}
         onChangeText={(text) => setHouseNumber(text)}
       />
-      <TextInput
+  <Text>מספר בית</Text>
+</View>
+
+<View style={styles.inp}>
+      <TextInput style={styles.textInputS}
         placeholder="עיר"
         value={city}
         onChangeText={(text) => setCity(text)}
       />
-      <TextInput
-        placeholder="סיסמה"
+        <Text>עיר</Text>
+</View>
+
+<View style={styles.inp}>
+      <TextInput style={styles.textInputS}
+        placeholder="סיסמא"
         value={password}
         onChangeText={(text) => setPassword(text)}
         secureTextEntry={true}
       />
-      <Button title="אישור" onPress={handleRegistration}/>
+        <Text>סיסמא</Text>
+</View>
+
+      <Button color="#a0522d" title="המשך" onPress={handleRegistration}/>
     </View>
     )
 }
+
+const styles= StyleSheet.create({
+inp:{
+  flexDirection: 'row',
+  padding: 15,
+  justifyContent:'space-between',
+  color:'red',
+},
+textInputS:{
+  borderWidth:1,
+  borderColor:'#cccccc',
+  width: "80%",
+  marginRight: 8,
+},
+title:{
+  padding: 60,
+  justifyContent:'center',
+  textAlign: 'center'
+},
+titp:{
+  textAlign: 'center'
+}
+});
 
 export default Professional_registration;
 
