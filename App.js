@@ -1,31 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Professional_registration from '../beautyreact/comps/Professional_registration';
-import ScreenOne from './comps/SceenOne';
-import LogIn from './comps/LogIn';
+import { StyleSheet} from 'react-native';
+
+import ScreenOne from './comps/GenralComps/ScreenOne';
+import LogIn from './comps/GenralComps/LogIn';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ForgetPas from './comps/GenralComps/ForgetPas';
+import Professional_registration from './comps/Professional_registration';
+// import TabbedPageNavigator from './comps/GenralComps/TabbedPage';
+// import MaterialTabbedPage from './comps/GenralComps/MaterialTabbedPage';
 
 
 
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+function App() {
   return (
-    <View style={styles.container}>
+  
+      <NavigationContainer>
+      <Stack.Navigator initialRouteName="ScreenOne" >
+        <Stack.Screen name="ScreenOne" component={ScreenOne} />
+        <Stack.Screen name="LogIn" component={LogIn} />
+        <Stack.Screen name="ForgetPas" component={ForgetPas} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  //  <Professional_registration></Professional_registration>
 
-      <LogIn></LogIn>
-
-      <StatusBar style="auto" />
-    </View>
   );
 }
 
+export default App;
 
-
-const styles = StyleSheet.create({
-  /*container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },*/
-});

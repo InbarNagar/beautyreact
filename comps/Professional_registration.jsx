@@ -1,32 +1,39 @@
 import React, { useState } from 'react';
 import {StyleSheet, View, TextInput, Button,Text,marginRight } from 'react-native';
-
+// http://proj.ruppin.ac.il/cgroup93/prod/api/
 const Professional_registration = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  
+  const [ID_number, setid] = useState('');
+  const [First_name, setFirstName] = useState('');
+  const [Last_name, setLastName] = useState('');
+
+  const [birth_date, setDateOfBirth] = useState('');
   const [gender, setGender] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState('');
   const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [street, setStreet] = useState('');
-  const [houseNumber, setHouseNumber] = useState('');
-  const [city, setCity] = useState('');
+  const [Email, setEmail] = useState('');
+  const [AddressStreet, setStreet] = useState('');
+  const [AddressHouseNumber, setHouseNumber] = useState('');
+  const [AddressCity, setCity] = useState('');
   const [password, setPassword] = useState('');
 
   const handleRegistration = () => {
-    fetch('http://localhost:53758/api/Professional/NewProfessional', {
+    fetch('http://proj.ruppin.ac.il/cgroup93/prod/api/Professional/NewProfessional', {
       method: 'POST',
-      headers: { 'Content-Type': 'multipart/form-data; charset=UTF-8', 'Accept': 'multipart/form-data'},
+      headers: new Headers({
+        "Content-type": "application/json; charset=UTF-8", 
+        'Accept': "application/json; charset=UTF-8",
+    }),
       body: JSON.stringify({
-        firstName,
-        lastName,
+        ID_number,
+        First_name,
+        Last_name,
+        birth_date,
         gender,
-        dateOfBirth,
-        phone,
-        email,
-        street,
-        houseNumber,
-        city,
+         phone,
+         Email,
+         AddressStreet,
+         AddressHouseNumber,
+         AddressCity,
         password,
       }),
     })
@@ -39,12 +46,19 @@ const Professional_registration = () => {
     <View style={{padding:50, backgroundColor:`#ffefd5`}}>
       <Text  style={styles.title}>איזה כיף שהחלטת להצטרף לקהילת בעלי העסקים שלנו!</Text>
       <Text style={styles.titp}> אנא מלא/י את הפרטים הבאים:</Text>
-        <View style={styles.inp}>
-         
-   
+       
+      <View style={styles.inp}>
+        <TextInput style={styles.textInputS}
+        placeholder="תעודת זהות"
+        value={ID_number}
+        onChangeText={(text) => setid(text)}
+      />
+         </View>
+
+ <View style={styles.inp}>
        <TextInput style={styles.textInputS}
         placeholder="שם פרטי"
-        value={firstName}
+        value={First_name}
         onChangeText={(text) => setFirstName(text)}
       />
    <Text>שם פרטי</Text> 
@@ -53,7 +67,7 @@ const Professional_registration = () => {
       <View style={styles.inp}>
       <TextInput style={styles.textInputS}
         placeholder="שם משפחה"
-        value={lastName}
+        value={Last_name}
         onChangeText={(text) => setLastName(text)}
       />
          <Text>שם משפחה</Text> 
@@ -71,7 +85,7 @@ const Professional_registration = () => {
 <View style={styles.inp}>
       <TextInput style={styles.textInputS}
         placeholder="תאריך לידה"
-        value={dateOfBirth}
+        value={birth_date}
         onChangeText={(text) => setDateOfBirth(text)}
       />
       <Text>שם משפחה</Text>
@@ -88,7 +102,7 @@ const Professional_registration = () => {
       <View style={styles.inp}>
       <TextInput style={styles.textInputS}
         placeholder="אימייל"
-        value={email}
+        value={Email}
         onChangeText={(text) => setEmail(text)}
       />
       <Text>איימיל</Text>
@@ -98,7 +112,7 @@ const Professional_registration = () => {
 <View style={styles.inp}>
       <TextInput style={styles.textInputS}
         placeholder="רחוב"
-        value={street}
+        value={AddressStreet}
         onChangeText={(text) => setStreet(text)}
       />
       <Text>רחוב</Text>
@@ -108,7 +122,7 @@ const Professional_registration = () => {
 <View style={styles.inp}>
       <TextInput style={styles.textInputS}
         placeholder="מספר בית"
-        value={houseNumber}
+        value={AddressHouseNumber}
         onChangeText={(text) => setHouseNumber(text)}
       />
   <Text>מספר בית</Text>
@@ -117,7 +131,7 @@ const Professional_registration = () => {
 <View style={styles.inp}>
       <TextInput style={styles.textInputS}
         placeholder="עיר"
-        value={city}
+        value={AddressCity}
         onChangeText={(text) => setCity(text)}
       />
         <Text>עיר</Text>
