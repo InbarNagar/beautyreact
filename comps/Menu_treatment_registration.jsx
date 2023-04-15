@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
 
-const TreatmentForm = () => {
+const Menu_treatment_registration = () => {
   const [treatments, setTreatments] = useState([]);
   const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState([{ treatment: '', category: '', price: '', duration: '' }]);
@@ -52,25 +52,25 @@ const TreatmentForm = () => {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.heading}>Treatment Form</Text>
+    <ScrollView >
+      <Text >Treatment Form</Text>
       {formData.map((form, index) => (
         <View key={index}>
-          <Text style={styles.label}>Treatment {index + 1}</Text>
-          <View style={styles.field}>
-            <Text style={styles.fieldLabel}>Treatment:</Text>
+          <Text >Treatment {index + 1}</Text>
+          <View >
+            <Text>Treatment:</Text>
             <TextInput
-              style={styles.input}
+             
               value={form.treatment}
               onChangeText={value => handleFormChange(index, 'treatment', value)}
               placeholder="Select a treatment"
             />
             <Button title="Choose" onPress={() => console.log('Choose treatment')} />
           </View>
-          <View style={styles.field}>
-            <Text style={styles.fieldLabel}>Category:</Text>
+          <View >
+            <Text>Category:</Text>
             <TextInput
-              style={styles.input}
+              
               value={form.category}
               onChangeText={value => handleFormChange(index, 'category', value)}
               placeholder="Select a category"
@@ -83,4 +83,4 @@ const TreatmentForm = () => {
       }</ScrollView>)
     }
       
-
+export default Menu_treatment_registration;

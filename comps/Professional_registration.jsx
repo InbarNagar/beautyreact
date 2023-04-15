@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-import {StyleSheet, View, TextInput, Button,Text,marginRight } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LogIn from './GenralComps/LogIn';
+import Create_Business_Pro from './Create_Business_Pro';
+import { TouchableOpacity } from 'react-native';
+
 // http://proj.ruppin.ac.il/cgroup93/prod/api/
-const Professional_registration = () => {
+
+const Professional_registration = (props) => {
   
   const [ID_number, setid] = useState('');
   const [First_name, setFirstName] = useState('');
@@ -17,6 +24,7 @@ const Professional_registration = () => {
   const [password, setPassword] = useState('');
 
   const handleRegistration = () => {
+    
     fetch('http://proj.ruppin.ac.il/cgroup93/prod/api/Professional/NewProfessional', {
       method: 'POST',
       headers: new Headers({
@@ -39,10 +47,16 @@ const Professional_registration = () => {
     })
       .then((response) => response.json())
       .then((data) => console.log(data))
+      
       .catch((error) => console.error(error));
+     
+      props.navigation.navigate('Create_Business_Pro')
+      
   };
 
+
   return (
+    
     <View style={{padding:50, backgroundColor:`#ffefd5`}}>
       <Text  style={styles.title}>איזה כיף שהחלטת להצטרף לקהילת בעלי העסקים שלנו!</Text>
       <Text style={styles.titp}> אנא מלא/י את הפרטים הבאים:</Text>
@@ -147,7 +161,24 @@ const Professional_registration = () => {
         <Text>סיסמא</Text>
 </View>
 
-      <Button color="#a0522d" title="המשך" onPress={handleRegistration}/>
+      
+        <View>
+
+        <TouchableOpacity onPress={handleRegistration} 
+       
+                >
+                    <View>
+                        <Text color="#a0522d">המשך</Text>
+                    </View>
+
+                </TouchableOpacity>
+        </View>
+
+
+
+
+
+
     </View>
     )
 }
@@ -155,7 +186,7 @@ const Professional_registration = () => {
 const styles= StyleSheet.create({
 inp:{
   flexDirection: 'row',
-  padding: 15,
+  padding: 10,
   justifyContent:'space-between',
   color:'red',
 },

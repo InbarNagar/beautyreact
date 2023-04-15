@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, SafeAreaVie
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ForgetPas from './ForgetPas';
+import Professional_registration from '../Professional_registration';
+import GenralReg from '../GenralReg';
 
 export default function LogIn(props) {
   const [ID_number, setEmail] = useState('');
@@ -71,7 +73,15 @@ export default function LogIn(props) {
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>התחברות</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={()=>{props.navigation.navigate(GenralReg)}}>
+        <Text >עדיין לא נרשמתם? לחצו כאן</Text>
+      </TouchableOpacity>
+
     </View>
+     
+    
+    
   );
 }
 
