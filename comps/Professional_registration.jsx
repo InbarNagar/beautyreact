@@ -102,7 +102,7 @@ const Professional_registration = (props) => {
         value={birth_date}
         onChangeText={(text) => setDateOfBirth(text)}
       />
-      <Text>שם משפחה</Text>
+      <Text>תאריך</Text>
       </View>
 
       <View style={styles.inp}>

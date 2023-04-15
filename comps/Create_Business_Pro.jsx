@@ -60,7 +60,7 @@ const Create_Business_Pro = (props) => {
         <TextInput style={styles.textInputS}
         placeholder="שם העסק"
         value={Name}
-        onChangeText={(text) => setid(text)}
+        onChangeText={(text) => setName(text)}
       />
          </View>
 
@@ -68,7 +68,7 @@ const Create_Business_Pro = (props) => {
         <TextInput style={styles.textInputS}
         placeholder="רחוב"
         value={AddressStreet}
-        onChangeText={(text) => setid(text)}
+        onChangeText={(text) => setStreet(text)}
       />
          </View>
 
@@ -76,7 +76,7 @@ const Create_Business_Pro = (props) => {
         <TextInput style={styles.textInputS}
         placeholder="מספר בית"
         value={AddressHouseNumber}
-        onChangeText={(text) => setid(text)}
+        onChangeText={(text) => setHouseNumber(text)}
       />
          </View>
 
@@ -84,7 +84,7 @@ const Create_Business_Pro = (props) => {
         <TextInput style={styles.textInputS}
         placeholder="עיר"
         value={AddressCity}
-        onChangeText={(text) => setid(text)}
+        onChangeText={(text) => setCity(text)}
       />
          </View>
 
@@ -92,7 +92,7 @@ const Create_Business_Pro = (props) => {
         <TextInput style={styles.textInputS}
         placeholder="נותן שירות בבית הלקוח ?"
         value={Is_client_house}
-        onChangeText={(text) => setid(text)}
+        onChangeText={(text) => setLocation(text)}
       />
          </View>
 
@@ -100,7 +100,7 @@ const Create_Business_Pro = (props) => {
         <TextInput style={styles.textInputS}
         placeholder="תעודת זהות בעל עסק"
         value={ Professional_ID_number}
-        onChangeText={(text) => setid(text)}
+        onChangeText={(text) => setIdPro(text)}
       />
          </View>
 
