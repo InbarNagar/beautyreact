@@ -25,4 +25,4 @@ const GenralReg = (props) => {
 
 }
 
-export default GenralReg
+export default GenralReg;

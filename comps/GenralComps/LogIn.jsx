@@ -6,32 +6,36 @@ import ForgetPas from './ForgetPas';
 import Professional_registration from '../Professional_registration';
 import GenralReg from '../GenralReg';
 
+
+
 export default function LogIn(props) {
   const [ID_number, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    try {
-      const response = await fetch('http://proj.ruppin.ac.il/cgroup93/prod/api/Professional/NewProfessional', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ ID_number, password })
-      });
+   
+      const response = await  fetch('http://proj.ruppin.ac.il/cgroup93/prod/api/Client/OneClient', {
+        method: 'GET',
+        headers:({
+          "Content-type": "application/json; charset=UTF-8", 
+          'Accept': "application/json; charset=UTF-8",
+        }),
+        body: JSON.stringify({ ID_number, password }),
+      })
 
       const data = await response.json();
 
       if (data.success) {
         Alert.alert('Login successful');
         // navigate to the next screen
-      } else {
+        props.navigation.navigate('Search')
+      } 
+      
+      else {
         Alert.alert('Login failed', data.message);
       }
-    } catch (error) {
-      console.error(error);
-      Alert.alert('Login failed', 'An error occurred while logging in');
-    }
+     
+    
   };
 
   return (
@@ -40,7 +44,7 @@ export default function LogIn(props) {
 
         <TextInput
           style={styles.input}
-          placeholder="מייל"
+          placeholder="תעודת זהות"
           value={ID_number}
           onChangeText={setEmail}
           autoCapitalize="none"

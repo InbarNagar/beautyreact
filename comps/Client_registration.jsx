@@ -152,31 +152,29 @@ const Client_registration = () => {
     )
 }
 
-
-
-const styles= StyleSheet.create({
-    inp:{
-      flexDirection: 'row',
-      padding: 10,
-      justifyContent:'space-between',
-      color:'red',
+const styles = StyleSheet.create({
+    inp: {
+        flexDirection: 'row',
+        padding: 15,
+        justifyContent: 'space-between',
+        color: 'red',
     },
-    textInputS:{
-      borderWidth:1,
-      borderColor:'#cccccc',
-      width: "80%",
-      marginRight: 8,
+    textInputS: {
+        borderWidth: 1,
+        borderColor: '#cccccc',
+        width: "80%",
+        marginRight: 8,
     },
-    title:{
-      padding: 60,
-      justifyContent:'center',
-      textAlign: 'center'
+    title: {
+        padding: 60,
+        justifyContent: 'center',
+        textAlign: 'center'
     },
-    titp:{
-      textAlign: 'center'
+    titp: {
+        textAlign: 'center'
     }
-    });
-    
+});
+
 
 export default Client_registration;
 
