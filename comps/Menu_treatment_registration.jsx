@@ -56,31 +56,31 @@ const Menu_treatment_registration = () => {
       <Text >Treatment Form</Text>
       {formData.map((form, index) => (
         <View key={index}>
-          <Text >Treatment {index + 1}</Text>
+          <Text >סוג טיפול {index + 1}</Text>
           <View >
             <Text>Treatment:</Text>
             <TextInput
-             
+
               value={form.treatment}
               onChangeText={value => handleFormChange(index, 'treatment', value)}
-              placeholder="Select a treatment"
+              placeholder="הזן סוג טיפול "
             />
             <Button title="Choose" onPress={() => console.log('Choose treatment')} />
           </View>
           <View >
             <Text>Category:</Text>
             <TextInput
-              
+
               value={form.category}
               onChangeText={value => handleFormChange(index, 'category', value)}
               placeholder="Select a category"
             />
             <Button title="Choose" onPress={() => console.log('Choose category')} />
           </View>
-          </View>
+        </View>
       )
       )
       }</ScrollView>)
-    }
-      
+}
+
 export default Menu_treatment_registration;

@@ -42,7 +42,7 @@ const Create_Business_Pro = (props) => {
           
           .catch((error) => console.error(error));
          
-          props.navigation.navigate('Menu_treatment_registration')
+          props.navigation.navigate('AddTratment')
           
       };
 
