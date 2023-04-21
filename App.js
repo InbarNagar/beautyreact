@@ -6,7 +6,7 @@ import LogIn from './comps/GenralComps/LogIn';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ForgetPas from './comps/GenralComps/ForgetPas';
+import ForgotPassword from './comps/GenralComps/ForgotPassword';
 import Professional_registration from './comps/Professional_registration';
 import GenralReg from './comps/GenralReg';
 import Client_registration from './comps/Client_registration';
@@ -33,7 +33,7 @@ function App() {
       <Stack.Navigator initialRouteName="ScreenOne" >
         <Stack.Screen name="ScreenOne" component={ScreenOne} />
          <Stack.Screen name="LogIn" component={LogIn} />
-         <Stack.Screen name="ForgetPas" component={ForgetPas} />
+         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
          <Stack.Screen name='GenralReg' component={GenralReg}/>
          <Stack.Screen name='Professional_registration' component={Professional_registration}/>
          <Stack.Screen name='Client_registration' component={Client_registration}/>

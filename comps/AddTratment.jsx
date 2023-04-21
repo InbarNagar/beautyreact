@@ -10,15 +10,15 @@ const AddTratment = () => {
     const [Price, setPrice] = useState('');
     const [Treatment_duration, setTreatment_duration] = useState('');
 
-
-
     const [selectedOption, setSelectedOption] = useState('');
 
+    const categories = ['קוסמטיקה', 'הסרת שיער', 'ציפורניים', 'שיער', 'איפור'];
     const options = ['קוסמטיקה', 'הסרת שיער', 'ציפורניים', 'שיער', 'איפור'];
-    
+
+
 
     const renderOptionItems = () => {
-        return options.map(option => (
+        return categories.map(option => (
             <TouchableOpacity
                 key={option}
                 style={[styles.optionItem, selectedOption === option ? styles.selectedOption : null]}
@@ -60,26 +60,18 @@ const AddTratment = () => {
 
     return (
 
-
-
         <View >
             <View>
-
-            <View>
-                <Text>בחר קטגוריה</Text>
-                <View >{renderOptionItems()}</View>
-                <TouchableOpacity  >
-                    <Text >בחר</Text>
-                </TouchableOpacity>
+                <View>
+                    <Text>בחר קטגוריה</Text>
+                    <View >{renderOptionItems()}</View>
+                    <TouchableOpacity  >
+                        <Text >בחר</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
 
-
-            </View>
-
-
-            <Text>
-                הזן סוג טיפול
-            </Text>
+       
 
             <View style={styles.inp}>
                 <TextInput style={styles.textInputS}
@@ -125,4 +117,4 @@ const styles = StyleSheet.create({
 
 
 
-export default AddTratment 
+export default AddTratment;

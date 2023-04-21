@@ -14,21 +14,21 @@ const ScreenOne = (props) => {
 
     return (
 
-        <View>
+        <View style={{flex: 1}}>
            
-            <Text style={style.wel} color='#fff8dc'>ברוכים הבאים </Text>
+            <Text style={style.wel} >Beuaty Me</Text>
 
             <View >
 
-                <TouchableOpacity onPress={() => {props.navigation.navigate('LogIn')
+                <TouchableOpacity onPress={() => {props.navigation.navigate('LogIn',{userType:'Pro',})
                 }}>
                     <View style={style.viewS}>
-                        <Text style={style.titleText} color="#a0522d">בעלי עסקים</Text>
+                        <Text style={style.titleText}>בעלי עסקים</Text>
                     </View>
 
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => { props.navigation.navigate('LogIn')
+                <TouchableOpacity onPress={() => { props.navigation.navigate('LogIn',{userType:'Cli',})
              }}>
                     <View style={style.viewS}>
                         <Text style={style.titleText} >לקוחות</Text>
@@ -44,9 +44,8 @@ const style = StyleSheet.create({
     wel: {
         textAlign: "center",
         fontSize: 70,
-        color: '#b8860b',
         paddingTop: 50,
-
+        color:'#9acd32',
     },
 
     titleText: {
@@ -55,8 +54,10 @@ const style = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         borderRadius: 40,
-        backgroundColor: 'burlywood',
-        color: '#f0f8ff',
+        backgroundColor:'#9acd32',
+         color: '#f0f8ff',
+        opacity: 0.5,
+        
 
     },
     viewS: {
@@ -64,9 +65,7 @@ const style = StyleSheet.create({
         flexDirection: 'column',
         textAlign: 'center',
         padding: 15,
-
-
-
+        
     }
 })
 
