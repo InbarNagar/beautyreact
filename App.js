@@ -33,6 +33,7 @@ function App() {
       <Stack.Navigator initialRouteName="ScreenOne" >
         <Stack.Screen name="ScreenOne" component={ScreenOne} />
          <Stack.Screen name="LogIn" component={LogIn} />
+         <Stack.Screen name="Search" component={Search} />
          <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
          <Stack.Screen name='GenralReg' component={GenralReg}/>
          <Stack.Screen name='Professional_registration' component={Professional_registration}/>

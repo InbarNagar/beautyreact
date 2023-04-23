@@ -7,29 +7,64 @@ import Professional_registration from '../Professional_registration';
 import GenralReg from '../GenralReg';
 import { LogInF } from '../FunctionAPICode';
 import Input from '../Input';
-
+import { LogInPro } from '../FunctionAPICode';
 
 
 export default function LogIn(props) {
+  
   const [ID_number, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { navigation, route } = props
   let userType = route.params.userType
   console.log({ userType })
+
   const handleLogin = () => {
 
     if (userType == 'Cli') {
       console.log('cli')
       LogInF(ID_number, password).then((result) => {
         console.log('yes', result)
-        navigation.navigate('Search')
-
+       navigation.navigate('Search')
+console.log('i am here')
       }, (error) => {
         console.log('error', error)
       })
     }
     else {
-      console.log('professional')
+      const userData={ID_number:ID_number, password:password}
+      let url= 'http://proj.ruppin.ac.il/cgroup93/prod/api/Professional/GetProfessional'
+       const response = fetch(url, {
+           method: 'POST',
+          headers:({
+             "Content-type": "application/json",
+             'Accept': "application/json"
+          }),
+          body: JSON.stringify(userData),
+        })
+      .then((response)=>{
+        if(response.status===200)
+        return response.json()
+        else return null
+      })
+      .then((json)=>{
+        if(json===null)
+        alert('login faild')
+        else 
+        alert ('login ok')
+        navigation.navigate('Search',{user:json})
+      }).catch((error) => {
+         Alert.alert('Login Failed');
+        console.log(error);
+    }
+    );
+      // LogInPro(ID_number,password).then((result) => {
+      //   console.log('yes', result)
+      //   // navigation.navigate('Search')
+      //   console.log('i am here')
+
+      // }, (error) => {
+      //   console.log('error', error)
+      // })
     }
     // const response = await  fetch('http://localhost:53758/api/Client/OneClient', {
     //   method: 'POST',
@@ -57,7 +92,7 @@ export default function LogIn(props) {
 
   return (
     <View style={styles.container}>
-      {/* <View style={styles.inp}>
+      <View style={styles.inp}>
 
         <TextInput
           style={styles.input}
@@ -69,8 +104,8 @@ export default function LogIn(props) {
           autoCompleteType="email"
         />
         <Text style={styles.title}>תעודת זהות</Text>
-      </View> */}
-      <Input
+      </View>
+      {/* <Input
         styleContainer={styles.inp}
         style={styles.input}
         placeholder="תעודת זהות"
@@ -79,7 +114,7 @@ export default function LogIn(props) {
         autoCapitalize="none"
         keyboardType="email-address"
         autoCompleteType="email"
-      />
+      /> */}
       <View style={styles.inp}>
         <TextInput
           style={styles.input}

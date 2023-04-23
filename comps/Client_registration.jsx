@@ -3,7 +3,7 @@ import { StyleSheet, View, TextInput, Button, Text } from 'react-native';
 import { Cli_Registration } from './FunctionAPICode';
 
 
-const Client_registration = () => {
+const Client_registration = (props) => {
   const [ID_number, setid] = useState('');
   const [First_name, setFirstName] = useState('');
   const [Last_name, setLastName] = useState('');
@@ -33,6 +33,7 @@ const Client_registration = () => {
     }
     Cli_Registration(data).then((result) => {
       console.log('yes', result)
+     props.navigation.navigate('Search')
 
     }, (error) => {
       console.log('error', error)

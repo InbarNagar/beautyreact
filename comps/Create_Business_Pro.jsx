@@ -5,11 +5,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity } from 'react-native';
 import Professional_registration from './Professional_registration';
 import Menu_treatment_registration from './Menu_treatment_registration';
+import { Professional_Business } from './FunctionAPICode';
 
 const Create_Business_Pro = (props) => {
-
-
-
   const [Name, setName] = useState('');
   const [AddressStreet, setStreet] = useState('');
   const [AddressHouseNumber, setHouseNumber] = useState('');
@@ -20,29 +18,50 @@ const Create_Business_Pro = (props) => {
 
   const handleRegistrationB = () => {
 
-    fetch('http://proj.ruppin.ac.il/cgroup93/prod/api/Business/NewBusiness', {
-      method: 'POST',
-      headers: new Headers({
-        "Content-type": "application/json; charset=UTF-8",
-        'Accept': "application/json; charset=UTF-8",
-      }),
-      body: JSON.stringify({
+    const data={
 
-        Name,
-        AddressStreet,
-        AddressHouseNumber,
-        AddressCity,
-        Is_client_house,
-        Professional_ID_number,
+       Name:Name,
+       Is_client_house:Is_client_house,
+       AddressStreet:AddressStreet,
+       AddressHouseNumber:AddressHouseNumber,
+        AddressCity:AddressCity,
+        Professional_ID_number:Professional_ID_number
 
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
+    }
 
-      .catch((error) => console.error(error));
+    Professional_Business(data).then((result) => {
+      console.log('yes', result)
+     props.navigation.navigate('AddTratment')
 
-    props.navigation.navigate('AddTratment')
+    }, (error) => {
+      console.log('error', error)
+    });
+
+
+
+    // fetch('http://proj.ruppin.ac.il/cgroup93/prod/api/Business/NewBusiness', {
+    //   method: 'POST',
+    //   headers: new Headers({
+    //     "Content-type": "application/json; charset=UTF-8",
+    //     'Accept': "application/json; charset=UTF-8",
+    //   }),
+    //   body: JSON.stringify({
+
+    //     Name,
+    //     AddressStreet,
+    //     AddressHouseNumber,
+    //     AddressCity,
+    //     Is_client_house,
+    //     Professional_ID_number,
+
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data))
+
+    //   .catch((error) => console.error(error));
+
+    // props.navigation.navigate('AddTratment')
 
   };
 
